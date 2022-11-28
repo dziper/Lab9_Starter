@@ -88,6 +88,13 @@
   </main>
 
   <script>
+    class ArithmeticError extends Error {
+      constructor(message) {
+        super(message);
+        this.name = "ValidationError";
+      }
+    }
+    
     let form = document.querySelector('form');
     form.addEventListener('submit', e => {
       e.preventDefault();
@@ -95,7 +102,19 @@
       let firstNum = document.querySelector('#first-num').value;
       let secondNum = document.querySelector('#second-num').value;
       let operator = document.querySelector('#operator').value;
-      output.innerHTML = eval(`${firstNum} ${operator} ${secondNum}`);
+
+      try {
+        console.log("Attempting Calculation")
+        let calculation = eval(`${firstNum} ${operator} ${secondNum}`);
+        output.innerHTML = calculation;
+      } catch (error) {
+        console.error(error);
+        output.innerHTML = error.message;  
+      } finally {
+        console.log("Finally")
+      }
+
+      
     });
 
     let errorBtns = Array.from(document.querySelectorAll('#error-btns > button'));
@@ -114,7 +133,7 @@
       console.warn("This is a Warning");
     });
     errorBtns[4].addEventListener('click', e=> {
-      console.assert(0 == [], "This is an assertion");
+      console.assert(0 != [], "This is an assertion");
     });
     errorBtns[5].addEventListener('click', e=> {
       console.clear();
@@ -145,12 +164,12 @@
     });
     errorBtns[14].addEventListener('click', e=> {
       console.log("An error should happen here");
-      let definitelyNotZero = 0;
-      console.log("hello"/0);
+      errorBtns[20].functionDoesntExist();
     });
     
+
     
-    
+
     // You may move this JS to another file if you wish
   </script>
 </body>
