@@ -101,6 +101,56 @@
     let errorBtns = Array.from(document.querySelectorAll('#error-btns > button'));
 
     // Start your code here
+    errorBtns[0].addEventListener('click', e=> {
+      console.log("Console log");
+    });
+    errorBtns[1].addEventListener('click', e=> {
+      console.error("This is an error");
+    });
+    errorBtns[2].addEventListener('click', e=> {
+      console.count("Counter");
+    });
+    errorBtns[3].addEventListener('click', e=> {
+      console.warn("This is a Warning");
+    });
+    errorBtns[4].addEventListener('click', e=> {
+      console.assert(0 == [], "This is an assertion");
+    });
+    errorBtns[5].addEventListener('click', e=> {
+      console.clear();
+    });
+    errorBtns[6].addEventListener('click', e=> {
+      console.dir(errorBtns);
+    });
+    errorBtns[7].addEventListener('click', e=> {
+      console.dirxml(errorBtns);
+    });
+    errorBtns[8].addEventListener('click', e=> {
+      console.group("My Logging Group");
+    });
+    errorBtns[9].addEventListener('click', e=> {
+      console.groupEnd("My Logging Group");
+    });
+    errorBtns[10].addEventListener('click', e=> {
+      console.table(["apples", "oranges", "bananas"]);
+    });
+    errorBtns[11].addEventListener('click', e=> {
+      console.time("My Timer");
+    });
+    errorBtns[12].addEventListener('click', e=> {
+      console.timeEnd("My Timer");
+    });
+    errorBtns[13].addEventListener('click', e=> {
+      console.trace();
+    });
+    errorBtns[14].addEventListener('click', e=> {
+      console.log("An error should happen here");
+      let definitelyNotZero = 0;
+      console.log("hello"/0);
+    });
+    
+    
+    
     // You may move this JS to another file if you wish
   </script>
 </body>
